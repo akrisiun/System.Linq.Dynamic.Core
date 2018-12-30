@@ -1,0 +1,35 @@
+﻿<Project>
+    <Sdk Name="Microsoft.NET.Sdk" />
+    
+    <PropertyGroup>
+        <Authors>Microsoft;Matt Warren</Authors>
+        <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
+    </PropertyGroup>
+    <ItemGroup>
+      <Compile Remove="IQToolkit.Sql\Core\Session\**" />
+      <EmbeddedResource Remove="IQToolkit.Sql\Core\Session\**" />
+      <None Remove="IQToolkit.Sql\Core\Session\**" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.NETCore.Runtime.CoreCLR" Version="2.0.8" />
+        <PackageReference Include="Microsoft.NETCore.Jit" Version="2.0.8" />
+        
+        <PackageReference Include="System.Data.Common" Version="4.3.0" />
+        <PackageReference Include="System.Data.SqlClient" Version="4.6.0" />
+        <PackageReference Include="System.Configuration.ConfigurationManager" Version="4.5.0" />
+        <PackageReference Include="System.Diagnostics.DiagnosticSource" Version="4.5.1" />
+        <PackageReference Include="System.Linq" Version="4.3.0" />
+        <PackageReference Include="System.Linq.Expressions" Version="4.3.0" />
+        <PackageReference Include="System.Linq.Queryable" Version="4.3.0" />
+        <PackageReference Include="System.Xml.XmlDocument" Version="4.3.0" />
+    </ItemGroup>
+    <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard2.0' or '$(TargetFramework)' == 'netcoreapp2.0'  or '$(TargetFramework)' == 'netcoreapp3.0' ">
+        <PackageReference Include="System.Reflection.Emit" Version="4.3.0" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'net452' or '$(TargetFramework)' == 'net461'">
+        <Reference Include="System" />
+        <Reference Include="System.Xml.Linq" />
+        <Reference Include="Microsoft.CSharp" />
+    </ItemGroup>
+</Project>

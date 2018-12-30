@@ -18,6 +18,10 @@ namespace System.Linq.Dynamic.Core.Tests
                 new User { Income = 3, Profile = null }
             }.AsQueryable();
 
+            //     Provides a set of static methods for querying data structures that implement System.Linq.IQueryable`1.
+            // public static class Queryable
+            // IQueryable<TElement> AsQueryable<TElement>(this IEnumerable<TElement> source);
+
             // Act
             Check.ThatCode(() => users.Select("Profile?.Age")).Throws<NotSupportedException>();
         }
